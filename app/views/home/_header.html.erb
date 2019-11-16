@@ -14,6 +14,15 @@
         <a class="nav-link"<%= link_to "O-mnie", home_about_path %></a>
       </li>
      
+
+<%if user_signed_in? %>
+<li><%=link_to 'Edycja profilu',edit_user_registration_path %></li>
+<li><%=link_to 'wylogowanie',destroy_user_session_path, method:delete %></li>
+<%else %>
+<li>
+  <%=link_to 'logowanie',new_user_session_path %></li>
+<li><%=link_to 'rejestracja',new_user_registration_path %></li>
+<% end %>
     </ul>
   </div>
 </nav>
